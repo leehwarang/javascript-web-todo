@@ -5,8 +5,17 @@ import { IconButton } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
 import propTypes from "prop-types";
 
-const TodoList = ({ onChangeHandler, onDeleteHandler, mode }) => {
-  const { todoData, error, loading } = useContext(TodoContext);
+const TodoList = ({ mode }) => {
+  const { todoData, error, loading, dispatch } = useContext(TodoContext);
+
+  const onChangeHandler = data => {
+    dispatch({ type: "CHANGE_TODO", payload: data });
+  };
+
+  const onDeleteHandler = (e, data) => {
+    e.stopPropagation();
+    dispatch({ type: "DELETE_TODO", payload: data });
+  };
 
   const makeLiData = (todos, mode) => {
     console.log(todos, mode);

@@ -8,16 +8,6 @@ import Button from "@material-ui/core/Button";
 
 export default function All({ toggle }) {
   console.log("All");
-  const { dispatch } = useContext(TodoContext);
-
-  const onChangeHandler = data => {
-    dispatch({ type: "CHANGE_TODO", payload: data });
-  };
-
-  const onDeleteHandler = (e, data) => {
-    e.stopPropagation();
-    dispatch({ type: "DELETE_TODO", payload: data });
-  };
 
   return (
     <div>
@@ -25,11 +15,7 @@ export default function All({ toggle }) {
         <DIV>
           <HEADER customAttr="test">All</HEADER>
           <ul style={{ display: toggle ? "block" : "none" }}>
-            <TodoList
-              onChangeHandler={onChangeHandler}
-              onDeleteHandler={onDeleteHandler}
-              mode="all"
-            />
+            <TodoList mode="all" />
           </ul>
         </DIV>
       </ShowDIV>
