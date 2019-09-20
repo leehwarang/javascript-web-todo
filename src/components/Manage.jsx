@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import AddTodo from "./AddTodo";
-import ShowTodo from "./ShowTodo";
 import Counter from "./Counter";
+import Navigation from "./Navigation";
 
 const Manage = () => {
   return (
     <>
       <AddTodo />
       <Counter />
-      <ShowTodo />
+      <Navigation />
     </>
   );
 };
