@@ -1,14 +1,18 @@
 import React from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import { ToDoStore } from "../provider/ToDoStore";
-import Manage from "./Manage";
+import AddTodo from "./AddTodo";
+import Counter from "./Counter";
+import NavTodo from "./NavTodo";
 
 const App = () => {
   return (
     <>
       <GlobalStyle />
       <ToDoStore>
-        <Manage />
+        <AddTodo />
+        <Counter />
+        <NavTodo />
       </ToDoStore>
     </>
   );
