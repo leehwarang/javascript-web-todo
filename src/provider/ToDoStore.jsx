@@ -6,7 +6,8 @@ import propTypes from "prop-types";
 export const TodoContext = React.createContext({});
 
 export const ToDoStore = ({ children }) => {
-  const [todoData, dispatch] = useReducer(TodoReducer, []);
+  console.log("ToDoStore");
+  const [datas, dispatch] = useReducer(TodoReducer, []);
   const [error, setError] = useState(false);
 
   const errorHandler = e => {
@@ -20,12 +21,12 @@ export const ToDoStore = ({ children }) => {
 
   const loading = useFetch(setInitTodoData, URL, errorHandler);
 
-  const { todoCnt, doneCnt } = useMemo(() => filterdData(todoData), [todoData]);
+  const { todoCnt, doneCnt } = useMemo(() => filterdData(datas), [datas]);
 
   return (
     <>
       <TodoContext.Provider
-        value={{ todoData, error, loading, dispatch, todoCnt, doneCnt }}
+        value={{ datas, error, loading, dispatch, todoCnt, doneCnt }}
       >
         {children}
       </TodoContext.Provider>
@@ -44,7 +45,7 @@ const filterdData = arr => {
 };
 
 TodoContext.Provider.propTypes = {
-  todoData: propTypes.array,
+  datas: propTypes.array,
   error: propTypes.bool,
   loading: propTypes.bool,
   todoCnt: propTypes.number,

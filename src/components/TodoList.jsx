@@ -6,7 +6,7 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import propTypes from "prop-types";
 
 const TodoList = ({ mode }) => {
-  const { todoData, error, loading, dispatch } = useContext(TodoContext);
+  const { datas, error, loading, dispatch } = useContext(TodoContext);
 
   const onChangeHandler = data => {
     dispatch({ type: "CHANGE_TODO", payload: data });
@@ -17,40 +17,36 @@ const TodoList = ({ mode }) => {
     dispatch({ type: "DELETE_TODO", payload: data });
   };
 
-  const makeLiData = (todos, mode) => {
-    console.log(todos, mode);
-    let datas = todos;
-    if (mode === "all") {
-      return [...todos].map(todo => {
-        return (
-          <LI onClick={() => onChangeHandler(todo)} key={todo.id}>
-            {todo.status === "todo" ? todo.title : <del>{todo.title}</del>}
-            <IconButton id={todo.id} onClick={e => onDeleteHandler(e, todo)}>
-              <DeleteIcon fontSize="small" />
-            </IconButton>
-          </LI>
-        );
-      });
-    } else {
-      datas = datas.filter(todo => todo.status === mode);
-      return datas.map(todo => {
-        return (
-          <LI onClick={() => onChangeHandler(todo)} key={todo.id}>
-            {todo.status === "todo" ? todo.title : <del>{todo.title}</del>}
-            <IconButton id={todo.id} onClick={e => onDeleteHandler(e, todo)}>
-              <DeleteIcon fontSize="small" />
-            </IconButton>
-          </LI>
-        );
-      });
+  const makeLiData = (datas, mode) => {
+    let contents = datas;
+
+    if (mode !== "all") {
+      contents = contents.filter(content => content.status === mode);
     }
+
+    return contents.map(content => {
+      return (
+        <LI onClick={() => onChangeHandler(content)} key={content.id}>
+          {content.status === "todo" ? (
+            content.title
+          ) : (
+            <del>{content.title}</del>
+          )}
+          <IconButton
+            id={content.id}
+            onClick={e => onDeleteHandler(e, content)}
+          >
+            <DeleteIcon fontSize="small" />
+          </IconButton>
+        </LI>
+      );
+    });
   };
 
-  const makeLiComponent = (todoData, mode) => {
-    const todos = todoData;
-    const isEmpty = !todos.length;
+  const makeLiComponent = (datas, mode) => {
+    const isEmpty = !datas.length;
 
-    const result = isEmpty ? <li>없음</li> : makeLiData(todos, mode);
+    const result = isEmpty ? <li>없음</li> : makeLiData(datas, mode);
     return result;
   };
 
@@ -58,7 +54,7 @@ const TodoList = ({ mode }) => {
     <>
       {error && <li>네트워크 요청 실패</li>}
       {loading && <li>로딩중...</li>}
-      {!error && !loading && makeLiComponent(todoData, mode)}
+      {!error && !loading && makeLiComponent(datas, mode)}
     </>
   );
 };
