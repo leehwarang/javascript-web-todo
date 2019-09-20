@@ -6,8 +6,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import { display } from "@material-ui/system";
 import Button from "@material-ui/core/Button";
 
-export default function Done() {
-  const [toggle, setToggle] = useState(true);
+export default function Done({ toggle }) {
+  console.log("Done");
   const { dispatch } = useContext(TodoContext);
 
   const onChangeHandler = data => {
@@ -19,19 +19,11 @@ export default function Done() {
     dispatch({ type: "DELETE_TODO", payload: data });
   };
 
-  const ModulateWindow = e => {
-    toggle ? setToggle(false) : setToggle(true);
-  };
-
   return (
     <div>
-      Done
       <ShowDIV>
         <DIV>
-          <HEADER customAttr="test">해야할 일</HEADER>
-          <Button color="secondary" onClick={e => ModulateWindow(e)}>
-            {toggle ? "접기" : "펼치기"}
-          </Button>
+          <HEADER customAttr="test">Done</HEADER>
           <ul style={{ display: toggle ? "block" : "none" }}>
             <TodoList
               onChangeHandler={onChangeHandler}
