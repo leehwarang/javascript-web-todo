@@ -1,16 +1,17 @@
 import React, { useState, useContext } from "react";
-import { TodoContext } from "../provider/ToDoStore";
+import { TodoContext } from "../../provider/ToDoStore";
 import styled from "styled-components";
 import Fab from "@material-ui/core/Fab";
 
 const Counter = () => {
+  console.log("Counter");
   const { todoCnt, doneCnt } = useContext(TodoContext);
 
   return (
     <>
       <CounterDIV>
-        진행 중 :<Fab color="primary">{todoCnt}</Fab>
-        완료 : <Fab color="secondary">{doneCnt}</Fab>
+        todo :<Fab color="primary">{todoCnt}</Fab>
+        done : <Fab color="secondary">{doneCnt}</Fab>
       </CounterDIV>
     </>
   );

@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useContext } from "react";
 import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
-import All from "./All";
-import Todo from "./Todo";
-import Done from "./Done";
-import Fold from "./Fold";
-import Error404 from "./Error404";
+import All from "../All/All.jsx";
+import Todo from "../Todo/Todo.jsx";
+import Done from "../Done/Done.jsx";
+import Fold from "../Fold/Fold.jsx";
+import Error404 from "../Error404";
 import styled from "styled-components";
 import Button from "@material-ui/core/Button";
 

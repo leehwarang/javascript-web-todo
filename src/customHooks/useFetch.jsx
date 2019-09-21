@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 
 const useFetch = (cbFunc, url, errorHandler) => {
+  console.log("useFetch");
   const [loading, setLoading] = useState(true);
 
   const fetchInitialData = async (cbFunc, url, errorHandler) => {

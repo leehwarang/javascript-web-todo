@@ -1,21 +1,21 @@
 import React, { useState, useEffect, useContext } from "react";
-import TodoList from "./TodoList";
-import { TodoContext } from "../provider/ToDoStore";
+import TodoList from "../TodoList/TodoList.jsx";
+import { TodoContext } from "../../provider/ToDoStore.jsx";
 import styled, { css } from "styled-components";
 import { makeStyles } from "@material-ui/core/styles";
 import { display } from "@material-ui/system";
 import Button from "@material-ui/core/Button";
 
-export default function Todo({ toggle }) {
-  console.log("Todo");
+export default function Done({ toggle }) {
+  console.log("Done");
 
   return (
     <div>
       <ShowDIV>
         <DIV>
-          <HEADER customAttr="test">Todo</HEADER>
+          <HEADER customAttr="test">Done</HEADER>
           <ul style={{ display: toggle ? "block" : "none" }}>
-            <TodoList mode="todo" />
+            <TodoList mode="done" />
           </ul>
         </DIV>
       </ShowDIV>

@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { TodoContext } from "../provider/ToDoStore";
+import { TodoContext } from "../../provider/ToDoStore";
 import styled, { css } from "styled-components";
 import { IconButton } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
@@ -67,8 +67,3 @@ const LI = styled.li`
   font-weight: 100;
   height: 2.4em;
 `;
-
-TodoList.propTypes = {
-  onChangeHandler: propTypes.func,
-  onDeleteHandler: propTypes.func
-};

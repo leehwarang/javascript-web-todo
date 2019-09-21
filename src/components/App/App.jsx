@@ -1,9 +1,9 @@
 import React from "react";
 import styled, { createGlobalStyle } from "styled-components";
-import { ToDoStore } from "../provider/ToDoStore";
-import AddTodo from "./AddTodo";
-import Counter from "./Counter";
-import NavTodo from "./NavTodo";
+import { ToDoStore } from "../../provider/ToDoStore";
+import AddTodo from "../AddTodo/AddTodo.jsx";
+import Counter from "../Counter/Counter.jsx";
+import NavTodo from "../NavTodo/NavTodo.jsx";
 
 const App = () => {
   return (

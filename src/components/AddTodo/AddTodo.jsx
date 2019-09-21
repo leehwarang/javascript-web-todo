@@ -1,9 +1,10 @@
 import React, { useState, useContext } from "react";
-import { TodoContext } from "../provider/ToDoStore";
+import { TodoContext } from "../../provider/ToDoStore";
 import styled, { css } from "styled-components";
 import propTypes from "prop-types";
 
 const AddTodo = () => {
+  console.log("AddToDo");
   const [inputValue, setInputValue] = useState("");
   const { dispatch } = useContext(TodoContext);
 
