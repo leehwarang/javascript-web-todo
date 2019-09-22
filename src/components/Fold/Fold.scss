@@ -1,0 +1,16 @@
+@import "../../stylesheets/util.scss";
+
+.Fold {
+  border: 1px solid $double-emphasize-color;
+  background: $double-emphasize-color;
+  color: white;
+  font-weight: 400;
+  font-size: 1.2rem;
+  position: relative;
+  left: 8.8rem;
+
+  &:hover {
+    background: $dark-gray-color;
+    cursor: pointer;
+  }
+}

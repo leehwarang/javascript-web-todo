@@ -1,12 +1,10 @@
 import React, { useState, useContext } from "react";
-import Button from "@material-ui/core/Button";
+import "./Fold.scss";
 
 export default function Fold({ toggle, onModulateWindow }) {
   return (
-    <>
-      <Button color="secondary" onClick={e => onModulateWindow(e)}>
-        {toggle ? "접기" : "펼치기"}
-      </Button>
-    </>
+    <button class="Fold" onClick={e => onModulateWindow(e)}>
+      {toggle ? "Fold" : "Unfold"}
+    </button>
   );
 }
