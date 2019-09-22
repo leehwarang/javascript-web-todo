@@ -1,0 +1,16 @@
+@import "../../stylesheets/util.scss";
+
+.todo-list {
+  font-family: $main-font;
+  font-size: 1.2rem;
+  list-style-type: none;
+  color: $dark-gray-color;
+  font-weight: 300;
+  background-color: white;
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+
+  & + & {
+    margin-bottom: 1rem;
+  }
+}
