@@ -5,8 +5,8 @@ import Todo from "../Todo/Todo.jsx";
 import Done from "../Done/Done.jsx";
 import Fold from "../Fold/Fold.jsx";
 import Error404 from "../Error404";
-import styled from "styled-components";
-import Button from "@material-ui/core/Button";
+import "./NavTodo.scss";
+import { NavLink } from "react-router-dom";
 
 const NavTodo = () => {
   console.log("NavTodo");
@@ -17,50 +17,62 @@ const NavTodo = () => {
   };
 
   return (
-    <div>
+    <div className="NavTodo">
       <BrowserRouter>
-        <NavUl>
-          <NavLi>
-            <Link to="/">All</Link>
-          </NavLi>
-          <NavLi>
-            <Link to="/todo">Todo</Link>
-          </NavLi>
-          <NavLi>
-            <Link to="/done">Done</Link>
-          </NavLi>
-        </NavUl>
-        <Fold toggle={toggle} onModulateWindow={ModulateWindow} />
+        <ul>
+          <li className="category">
+            <NavLink
+              exact
+              to="/"
+              className="category-link"
+              activeClassName="activeRoute"
+            >
+              || All
+            </NavLink>
+          </li>
+          <li className="category">
+            <NavLink
+              to="/doing"
+              className="category-link"
+              activeClassName="activeRoute"
+            >
+              || Doing
+            </NavLink>
+          </li>
+          <li className="category">
+            <NavLink
+              to="/completed"
+              className="category-link"
+              activeClassName="activeRoute"
+            >
+              || Completed
+            </NavLink>
+          </li>
+          <Fold
+            className="fold"
+            toggle={toggle}
+            onModulateWindow={ModulateWindow}
+          />
+        </ul>
 
         <Switch>
           <Route exact path="/" render={props => <All toggle={toggle} />} />
           <Route
             exact
-            path="/todo"
+            path="/doing"
             render={props => <Todo toggle={toggle} />}
           />
           <Route
             exact
-            path="/done"
+            path="/completed"
             render={props => <Done toggle={toggle} />}
           />
           <Route component={Error404} />
         </Switch>
       </BrowserRouter>
+      <hr />
     </div>
   );
 };
 
 export default NavTodo;
-
-const NavUl = styled.ul`
-  height: 15%;
-  margin: 2rem;
-  display: flex;
-  justify-content: space-around;
-  font-size: 1.6rem;
-`;
-
-const NavLi = styled.li`
-  display: inline-block;
-`;

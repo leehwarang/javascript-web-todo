@@ -1,0 +1,38 @@
+@import "../../stylesheets/util.scss";
+
+.NavTodo {
+  ul {
+    display: flex;
+    padding: 0;
+  }
+  .category {
+    list-style-type: none;
+    display: inline-block;
+    margin-right: 2rem;
+    font-size: 1.2rem;
+
+    .category-link {
+      color: #343a40;
+      border: 1px solid $emphasize-color;
+      background: white;
+      padding: 0.2rem;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &:link {
+        text-decoration: none;
+      }
+
+      &:visited {
+        text-decoration: none;
+      }
+    }
+
+    .activeRoute {
+      background: $emphasize-color;
+      color: white;
+    }
+  }
+}
