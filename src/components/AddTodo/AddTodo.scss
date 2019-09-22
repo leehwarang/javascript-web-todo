@@ -1,0 +1,37 @@
+@import "../../stylesheets/util.scss";
+
+.AddTodo {
+  form {
+    display: flex;
+  }
+
+  .form-input {
+    width: 75%;
+    height: 6rem;
+    margin-right: 2rem;
+    padding: 2rem;
+    font-size: 1.2rem;
+    font-style: italic;
+    color: $light-gray-color;
+    border: 1px solid $emphasize-color;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .form-btn {
+    width: 20%;
+    height: 6rem;
+    border: 1px solid $double-emphasize-color;
+    background: $double-emphasize-color;
+    color: white;
+    font-weight: 400;
+    font-size: 1.2rem;
+
+    &:hover {
+      background: $dark-gray-color;
+      cursor: pointer;
+    }
+  }
+}
