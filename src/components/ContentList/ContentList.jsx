@@ -1,12 +1,11 @@
 import React, { useContext } from "react";
 import { TodoContext } from "../../provider/ToDoStore";
-import "./TodoList.scss";
+import "./ContentList.scss";
 import { IconButton } from "@material-ui/core";
 import DoneIcon from "@material-ui/icons/Done";
 import DeleteIcon from "@material-ui/icons/Delete";
-import "./TodoList.scss";
 
-const TodoList = ({ mode }) => {
+const ContentList = ({ mode }) => {
   const { datas, error, loading, dispatch } = useContext(TodoContext);
 
   const onChangeHandler = data => {
@@ -68,4 +67,4 @@ const TodoList = ({ mode }) => {
   );
 };
 
-export default TodoList;
+export default ContentList;
