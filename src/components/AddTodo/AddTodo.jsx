@@ -3,7 +3,6 @@ import { TodoContext } from "../../provider/ToDoStore";
 import "./AddTodo.scss";
 
 const AddTodo = () => {
-  console.log("AddToDo");
   const [inputValue, setInputValue] = useState("");
   const { dispatch } = useContext(TodoContext);
 
@@ -19,9 +18,6 @@ const AddTodo = () => {
 
   return (
     <div className="AddTodo">
-      <h1>To-Do List</h1>
-      <p>what is your One Small Step? </p>
-      <hr />
       <form onSubmit={onSubmitHandler}>
         <input
           value={inputValue}
