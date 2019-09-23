@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
 import { TodoContext } from "../../provider/ToDoStore";
 import "./TodoList.scss";
-import styled, { css } from "styled-components";
 import { IconButton } from "@material-ui/core";
+import DoneIcon from "@material-ui/icons/Done";
 import DeleteIcon from "@material-ui/icons/Delete";
+import "./TodoList.scss";
 
 const TodoList = ({ mode }) => {
   const { datas, error, loading, dispatch } = useContext(TodoContext);
@@ -26,11 +27,7 @@ const TodoList = ({ mode }) => {
 
     return contents.map(content => {
       return (
-        <li
-          onClick={() => onChangeHandler(content)}
-          key={content.id}
-          className="todo-list"
-        >
+        <li className="todo-list">
           {content.status === "todo" ? (
             content.title
           ) : (
@@ -39,8 +36,16 @@ const TodoList = ({ mode }) => {
           <IconButton
             id={content.id}
             onClick={e => onDeleteHandler(e, content)}
+            className="btn-icon"
           >
             <DeleteIcon fontSize="small" />
+          </IconButton>
+          <IconButton
+            onClick={() => onChangeHandler(content)}
+            key={content.id}
+            className="btn-icon"
+          >
+            <DoneIcon />
           </IconButton>
         </li>
       );
