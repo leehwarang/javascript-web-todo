@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { TodoContext } from "../../provider/ToDoStore";
-import TodoList from "../TodoList/TodoList.jsx";
+import ContentList from "../ContentList/ContentList.jsx";
 
 export default function All({ toggle }) {
   console.log("All");
@@ -10,7 +10,7 @@ export default function All({ toggle }) {
       <h2>‍🏃🏻‍♀️ It's up to you!</h2>
       <div>
         <ul style={{ display: toggle ? "block" : "none" }}>
-          <TodoList mode="all" />
+          <ContentList mode="all" />
         </ul>
       </div>
     </div>

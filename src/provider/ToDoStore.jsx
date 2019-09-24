@@ -6,7 +6,6 @@ import propTypes from "prop-types";
 export const TodoContext = React.createContext({});
 
 export const ToDoStore = ({ children }) => {
-  console.log("ToDoStore");
   const [datas, dispatch] = useReducer(TodoReducer, []);
   const [error, setError] = useState(false);
 
