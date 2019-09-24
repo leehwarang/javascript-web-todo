@@ -4,10 +4,10 @@
   "description": "React based todo application",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --open --config webpack.config.dev.js",
-    "dev-build": "NODE_ENV=dev webpack --config webpack.config.js",
-    "build": "webpack --optimize-minimize && webpack --config webpack.config.js",
-    "start": "node app.js"
+    "start": "node app.js",
+    "dev-server": "webpack-dev-server --open --config webpack.config.dev.js",
+    "build": "webpack --config webpack.config.js",
+    "dev-build": "NODE_ENV=dev webpack --config webpack.config.js"
   },
   "repository": {
     "type": "git",
