@@ -1,4 +1,4 @@
-import React, { useState, useReducer, useContext, useMemo } from "react";
+import React, { useState, useReducer, useContext } from "react";
 import useFetch from "../customHooks/useFetch";
 import TodoReducer from "../reducer/TodoReducer";
 import propTypes from "prop-types";
@@ -20,7 +20,7 @@ export const ToDoStore = ({ children }) => {
 
   const loading = useFetch(setInitTodoData, URL, errorHandler);
 
-  const { todoCnt, doneCnt } = useMemo(() => filterdData(datas), [datas]);
+  const { todoCnt, doneCnt } = filterdData(datas);
 
   return (
     <>
