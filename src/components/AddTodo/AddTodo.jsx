@@ -1,9 +1,9 @@
-import React, { useState, useContext } from "react";
-import { TodoContext } from "../../provider/ToDoStore";
-import "./AddTodo.scss";
+import React, { useState, useContext } from 'react';
+import { TodoContext } from '../../provider/ToDoStore';
+import './AddTodo.scss';
 
 const AddTodo = () => {
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState('');
   const { dispatch } = useContext(TodoContext);
 
   const onChangeHandler = ({ target }) => {
@@ -12,8 +12,10 @@ const AddTodo = () => {
 
   const onSubmitHandler = e => {
     e.preventDefault();
-    dispatch({ type: "ADD_TODO", payload: inputValue });
-    setInputValue("");
+    if (!inputValue) return;
+
+    dispatch({ type: 'ADD_TODO', payload: inputValue });
+    setInputValue('');
   };
 
   return (
